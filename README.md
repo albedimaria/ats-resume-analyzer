@@ -80,7 +80,7 @@ python -m venv env
 source env/bin/activate  # macOS/Linux
 ```
 
-### 3. install dependecies
+### 3. install dependencies
 ```bash
 pip install -r requirements.txt
 ```
