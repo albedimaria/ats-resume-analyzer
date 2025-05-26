@@ -1,98 +1,99 @@
-# Smart ATS Resume Analyzer
+# ATS resume analyzer
 
-### Problem Statement
+> this project is a personal extension and adaptation of an original tutorial-based implementation by [shivan118](https://github.com/Shivan118/Resume-Analyzer---Smart-ATS-System)
 
-In today's competitive job market, job seekers face challenges ensuring their resumes align with job descriptions, meeting the criteria of Applicant Tracking Systems (ATS). ATS filters often reject resumes that lack specific keywords or don't match job requirements, reducing the chances of securing interviews. This creates a need for a tool to help job seekers optimize their resumes for ATS compliance and highlight areas for improvement.
+---
 
-### Business Use Cases
+## Problem Statement
 
-1. Resume Optimization for ATS
+in today's competitive job market, job seekers face challenges ensuring their resumes align with job descriptions, meeting the criteria of applicant tracking systems (ats).  
+ats filters often reject resumes that lack specific keywords or don't match job requirements, reducing the chances of securing interviews.
 
-    Assist job seekers in tailoring their resumes to specific job descriptions by identifying missing keywords and providing actionable feedback.
+this project builds upon an open-source tutorial by [shivan118](https://github.com/Shivan118/Resume-Analyzer---Smart-ATS-System), expanding its capabilities and adapting it to new use cases and improved design choices.
 
-2. Personalized Resume Improvement
+---
 
-    Deliver detailed analysis and suggestions for enhancing resume content, improving the likelihood of securing interviews.
+## Business Use Cases
 
-3. Efficient Resume Evaluation
+- **resume optimization for ats**  
+  help job seekers tailor their resumes to specific job descriptions by identifying missing keywords and giving actionable feedback
 
-    Streamline the process of evaluating resumes for job applicants, recruiters, or career counselors, ensuring effective job application strategies.
+- **personalized resume improvement**  
+  deliver detailed suggestions to enhance resume content and increase interview chances
 
-4. Enhancing Job Search Success
+- **efficient resume evaluation**  
+  streamline how resumes are evaluated by applicants, recruiters, or career coaches
 
-    Empower candidates with insights into how their resumes align with job postings, helping them stand out in a crowded job market.
+- **enhancing job search success**  
+  give candidates insights on how their resume aligns with job postings
 
-5. Scalable Job Application Support
+- **scalable job application support**  
+  offer a scalable analysis tool for career platforms or hr consultants
 
-    Provide a scalable solution for career platforms, educational institutions, or HR consultancies to offer resume analysis as a service.
+---
 
-### Key Features
+## Key Features
 
-1. Resume-Job Description Match Analysis
+- **resume-job description match analysis**  
+  calculates a match percentage between the resume and job description
 
-    Calculates a match percentage between the provided resume and job description.
+- **keyword identification**  
+  lists important missing keywords to improve ats compatibility
 
-2. Keyword Identification
+- **detailed profile summary**  
+  provides a breakdown of strengths and areas for improvement
 
-    Lists critical missing keywords to improve ATS compatibility.
+- **user-friendly interface**  
+  built with streamlit for smooth and simple interaction
 
-3. Detailed Profile Summary
+---
 
-    Offers a comprehensive analysis of strengths and areas for improvement in the resume.
+## How It Works
 
-4. User-Friendly Interface
+1. **upload resume**: upload your resume in pdf format  
+2. **provide job description**: paste the job description into the input field  
+3. **analyze resume**: the tool uses google gemini to process and compare content  
+4. **review results**:
+   - match score
+   - missing keywords
+   - profile summary
 
-    A simple and intuitive interface powered by Streamlit, enabling seamless user interaction.
+*note: this version has upgraded prompt handling, better ui logic with session state, and solid response parsing compared to the original tutorial.*---
 
-### How It Works
-1. Upload Resume
-    Upload your resume in PDF format.
+## Project Setup
 
-2. Provide Job Description
-    Paste the job description into the provided text area.
-
-3. Analyze Resume
-    The tool extracts text from the resume, processes it using Generative AI (Google's Gemini model), and provides actionable insights.
-
-4. Review Results
-
-    - Match Score: Displays a percentage match.
-    - Missing Keywords: Lists important keywords missing from the resume.
-    - Profile Summary: Provides detailed suggestions for resume improvement
-
-### Project Setup
-
-1. Clone the Repository
+### 1. clone the Repository
 ```bash
-git clone <repository-url>
-cd smart-ats-resume-analyzer
+git clone https://github.com/albedimaria/ats-resume-analyzer.git
+cd ats-resume-analyzer
 ```
 
-2. Create Virtual Environment
+### 2.create virtual environment
 ```bash
 conda create -p env python=3.10 -y
+conda activate ./env
+```
+or using venv
+```bash
+python -m venv env
+.\env\Scripts\activate   # Windows
+source env/bin/activate  # macOS/Linux
 ```
 
-3. Install Dependencies
+### 3. install dependecies
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Environment Configuration Create a .env file in the root directory:
+### 4. configure environment
+Create a .env file in the root directory and add your API key:
+
 ```bash
-GOOGLE_API_KEY =your_api_key_here
+GOOGLE_API_KEY="your_api_key_here"
 ```
 
-5. Run the Application
+### 5. run the application
 ```bash
 streamlit run app.py
 ```
 
-
-### Future Enhancements
-
-    - Multi-Format Resume Support: Extend support to other formats like Word (.docx).
-    - Customizable Feedback: Allow users to specify job sectors for tailored suggestions.
-    - Multilingual Support: Enable resume analysis in multiple languages.
-    - Integration with Job Portals: Directly fetch job descriptions from popular job boards.
-    - Analytics Dashboard: Provide aggregate insights into common gaps in resumes.
